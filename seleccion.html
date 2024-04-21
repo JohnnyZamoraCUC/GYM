@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GYM  IG</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/aos.css">
+    <link rel="stylesheet" href="css/tooplate-gymso-style.css">
+
+    <style>
+
+    .hero {
+        height: 10vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        background-color: #343a40;
+        color: #fff;
+    }
+
+    .hero #exerciseDetails {
+        background-color: rgb(255, 255, 255); /* Fondo claro con transparencia */
+        padding: 20px;
+        border-radius: 10px;
+        margin-bottom: 10px;
+    }
+
+    label {
+        color: #fff; /* Color del texto de la etiqueta */
+    }
+
+    select {
+        padding: 8px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        font-size: 16px;
+        background-color: rgba(255, 255, 255, 0.5); /* Fondo claro con transparencia */
+        color: #333; /* Color del texto dentro del select */
+        margin-bottom: 10px;
+    }
+
+    #selectExerciseBtn {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.3s ease;
+    }
+
+    #selectExerciseBtn:hover {
+        background-color: #0056b3;
+    }
+    .hero #exerciseDetails h2 {
+    color: #888; /* Color gris para el título h2 */
+}
+
+    </style>
+</head>
+
+<body>
+    <!-- MENU BAR -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">GYM IG</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-lg-auto">
+                    <li class="nav-item">
+                        <a href="#home" class="nav-link smoothScroll">Acondicionamiento</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#about" class="nav-link smoothScroll">Registro</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#class" class="nav-link smoothScroll">Clases</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="usuario.html" class="nav-link smoothScroll">Perfil</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero d-flex flex-column justify-content-center align-items-center" id="home">
+        <div class="bg-overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto col-12">
+                    <div class="hero-text mt-5 text-center">
+                        <div id="exerciseDetails" class="text-center text-white"></div>
+                        <label for="difficulty">Selecciona la dificultad:</label>
+                        <select id="difficulty" name="difficulty">
+                            <option value="easy">Fácil</option>
+                            <option value="intermediate">Intermedio</option>
+                            <option value="advanced">Avanzado</option>
+                        </select>
+                        <br><br>
+                        <!-- Botón para seleccionar el ejercicio -->
+                        <button id="selectExerciseBtn">Seleccionar Ejercicio</button>
+                    </div>
+                  
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="ml-auto col-lg-4 col-md-5">
+                    <p class="copyright-text">Copyright &copy; 2024 GYM IG.</p>
+                </div>
+                <div class="d-flex justify-content-center mx-auto col-lg-5 col-md-7 col-12">
+                    <p class="mr-4">
+                        <i class="fa fa-envelope-o mr-1"></i>
+                        <a href="#">GYMIG@gmail.com</a>
+                    </p>
+                    <p><i class="fa fa-phone mr-1"></i>2298-8908</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/aos.js"></script>
+    <script src="js/smoothscroll.js"></script>
+    <script src="js/custom.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const selectedExercise = localStorage.getItem('selectedExercise');
+            if (selectedExercise) {
+                const exercises = {
+                    Fitness: [
+                        {
+                            name: "Crunches",
+                            repetitions: 20,
+                            gif:"https://media.tenor.com/xysHaO7QKQcAAAAi/crunches-exercise.gif",
+                            difficulty: {
+                                easy: "Realiza 10 repeticiones.",
+                                intermediate: "Realiza 20 repeticiones.",
+                                advanced: "Realiza 30 repeticiones."
+                            }
+                        },
+                        {
+                            name: "Flexiones",
+                            gif:"https://i.gifer.com/BfG6.gif",
+                            repetitions: 15,
+                            difficulty: {
+                                easy: "Realiza 5 repeticiones.",
+                                intermediate: "Realiza 15 repeticiones.",
+                                advanced: "Realiza 25 repeticiones."
+                            }
+                        },
+                        {
+                            name: "Plancha",
+                            repetitions: 30,
+                            gif:"https://www.clinicacemes.com/wp-content/uploads/2020/04/plancha.gif",
+                            difficulty: {
+                                easy: "Mantén la posición por 30 segundos.",
+                                intermediate: "Mantén la posición por 60 segundos.",
+                                advanced: "Mantén la posición por 90 segundos."
+                            }
+                        },
+                        {
+                            name: "Sentadillas",
+                            repetitions: 25,
+                            gif:"https://www.clinicacemes.com/wp-content/uploads/2020/04/squats.gif",
+                            difficulty: {
+                                easy: "Realiza 10 repeticiones.",
+                                intermediate: "Realiza 25 repeticiones.",
+                                advanced: "Realiza 40 repeticiones."
+                            }
+                        },
+                        {
+                            name: "Burpe",
+                            gif:"https://www.clinicacemes.com/wp-content/uploads/2020/04/burpees.gif",
+                            repetitions: 30,
+                            difficulty: {
+                                easy: "Realiza 50 saltos.",
+                                intermediate: "Realiza 100 saltos.",
+                                advanced: "Realiza 150 saltos."
+                            }
+                        }
+                    ],
+                    Acondicionamiento: [
+                        {
+                            name: "Bicicleta",
+                            gif:"https://tenor.com/es/view/immersiva-spinning-bike-stationary-bike-gif-19985224",
+                            repetitions: 30,
+                            difficulty: {
+                                easy: "Realiza 5 minutos.",
+                                intermediate: "Realiza 10 minutos.",
+                                advanced: "Realiza 15 minutos."
+                            }
+                        },
+                        {
+                            name: "Zancada",
+                            repetitions: 20,
+                            gif:"https://tenor.com/es/view/afundo-gif-17980766854788037386",
+                            difficulty: {
+                                easy: "Realiza 10 repeticiones por pierna.",
+                                intermediate: "Realiza 20 repeticiones por pierna.",
+                                advanced: "Realiza 30 repeticiones por pierna."
+                            }
+                        },
+                        {
+                            name: "Skierg",
+                            gif:"https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExemV1ZGk2a3NlamNvbjEyMjY4NTQwNG1zeGlmcHE0d3RtZHNrODAxZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/qpFG3rUao4HVTi6JOt/giphy.gif",
+                            repetitions: 25,
+                            difficulty: {
+                                easy: "Realiza 500 metros.",
+                                intermediate: "Realiza 1000 metros.",
+                                advanced: "Realiza 1500 metros."
+                            }
+                        },
+                        {
+                            name: "Remo",
+                            repetitions: 25,
+                            gif:"https://tenor.com/es/view/back-rows-james-smith-james-smith-pt-working-out-fitness-gif-20516876",
+                            difficulty: {
+                                easy: "Realiza 500 metros.",
+                                intermediate: "Realiza 1000 metros.",
+                                advanced: "Realiza 1500 metros."
+                            }
+                        },
+                        {
+                            name: "Bosu",
+                            repetitions: 20,
+                            gif:"https://tenor.com/es/view/гимнастика-разминка-фитнес-gymnastics-warm-up-gif-15256644",
+                            difficulty: {
+                                easy: "Realiza 10 repeticiones.",
+                                intermediate: "Realiza 20 repeticiones.",
+                                advanced: "Realiza 30 repeticiones."
+                            }
+                        }
+                    ]
+                };
+                const exerciseCategory = selectedExercise in exercises ? selectedExercise : 'Fitness';
+        const exercise = exercises[exerciseCategory].find(ex => ex.name === selectedExercise);
+
+        if (exercise) {
+            const exerciseDetailsContainer = document.getElementById('exerciseDetails');
+            const selectExerciseBtn = document.getElementById('selectExerciseBtn');
+            const difficultyDropdown = document.getElementById('difficulty');
+
+            // Función para mostrar los detalles del ejercicio
+            function showExerciseDetails() {
+                exerciseDetailsContainer.innerHTML = `
+                    <h2>${exercise.name}</h2>
+                    <p>Repeticiones: ${exercise.repetitions}</p>
+                    <p>Dificultad: ${exercise.difficulty[difficultyDropdown.value]}</p>
+                    <img src="${exercise.gif}" alt="${exercise.name}" style="max-width: 100%; margin-top: 20px;">
+                `;
+            }
+
+            // Mostrar los detalles del ejercicio al cargar la página
+            showExerciseDetails();
+
+            // Actualizar detalles al cambiar la dificultad seleccionada
+            difficultyDropdown.addEventListener('change', showExerciseDetails);
+
+            // Manejar la selección del ejercicio al hacer clic en el botón
+            selectExerciseBtn.addEventListener('click', () => {
+                alert(`¡Has seleccionado el ejercicio ${exercise.name} con dificultad ${difficultyDropdown.value}!`);
+                // Aquí puedes agregar más acciones según la selección del ejercicio
+            });
+        }
+    } else {
+        console.error('No se ha seleccionado ningún ejercicio.');
+    }
+});
+    </script>
+</body>
+
+</html>

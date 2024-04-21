@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gymso Fitness HTML Template</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/aos.css">
+    <link rel="stylesheet" href="css/tooplate-gymso-style.css">
+
+    <style>
+        .card {
+            width: 190px;
+            height: 254px;
+            border-radius: 30px;
+            background: #212121;
+            box-shadow: 15px 15px 30px rgb(25, 25, 25), -15px -15px 30px rgb(60, 60, 60);
+            margin: 15px; /* Espacio entre las tarjetas */
+            display: inline-block;
+            overflow: hidden; /* Oculta cualquier parte de la imagen que exceda el tamaño del card */
+            transition: transform 0.3s ease; /* Transición suave para el efecto de zoom */
+        }
+
+        .card:hover {
+            transform: scale(1.1); /* Escala al 110% al hacer hover */
+        }
+
+        .card-img-top {
+            width: 100%; /* Ajusta el ancho de la imagen al 100% del card */
+            height: 100%; /* Ajusta la altura de la imagen al 100% del card */
+            object-fit: cover; /* La imagen cubrirá todo el contenedor del card */
+            border-radius: 30px; /* Asegura que la imagen tenga el mismo radio de borde que el card */
+        }
+    </style>
+</head>
+
+<body data-spy="scroll" data-target="#navbarNav" data-offset="50">
+
+    <!-- MENU BAR -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">GYM IG</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-lg-auto">
+                    <li class="nav-item">
+                        <a href="#home" class="nav-link smoothScroll">Acondicionamiento</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#about" class="nav-link smoothScroll">Registro</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#class" class="nav-link smoothScroll">Clases</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="usuario.html" class="nav-link smoothScroll">Perfil</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero d-flex flex-column justify-content-center align-items-center" id="home">
+        <div class="bg-overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 class="text-center text-white mb-4">Acondicionamiento Fisico</h2>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <!-- Tarjeta 1 - Burpees -->
+        
+                <div class="card" onclick="redirectToSelection('Bicicleta')">
+                    <img src="images/Acondicionamiento/Bicicleta.jpg" class="card-img-top" alt="Burpees">
+                </div>
+            
+                <!-- Tarjeta 2 - Flexiones -->
+                <div class="card" onclick="redirectToSelection('Zancada')">
+                    <img src="images/Acondicionamiento/zancada.JPG" class="card-img-top" alt="Flexiones">
+                </div>
+            
+                <!-- Tarjeta 3 - Plancha -->
+                <div class="card" onclick="redirectToSelection('Skierg')">
+                    <img src="images/Acondicionamiento/Skierg.jpg" class="card-img-top" alt="Plancha">
+                </div>
+            
+                <!-- Tarjeta 4 - Sentadillas -->
+                <div class="card" onclick="redirectToSelection('Remo')">
+                    <img src="images/Acondicionamiento/Remo.jpg" class="card-img-top" alt="Sentadillas">
+                </div>
+            
+                <!-- Tarjeta 5 - Otro Ejercicio -->
+                <div class="card" onclick="redirectToSelection('Bosu')">
+                    <img src="images/Acondicionamiento/Bosu.jpg" class="card-img-top" alt="Otro Ejercicio">
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row">
+
+                <div class="ml-auto col-lg-4 col-md-5">
+                    <p class="copyright-text">Copyright &copy; 2024 GYM IG.
+                    </p>
+                </div>
+
+                <div class="d-flex justify-content-center mx-auto col-lg-5 col-md-7 col-12">
+                    <p class="mr-4">
+                        <i class="fa fa-envelope-o mr-1"></i>
+                        <a href="#">GYMIG@gmail.com</a>
+                    </p>
+
+                    <p><i class="fa fa-phone mr-1"></i>2298-8908</p>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+    <script>
+        // Función para redirigir a seleccion.html con el nombre del ejercicio
+        function redirectToSelection(exerciseName) {
+            localStorage.setItem('selectedExercise', exerciseName);
+            window.location.href = 'seleccion.html';
+        }
+    </script>
+    <!-- SCRIPTS -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/aos.js"></script>
+    <script src="js/smoothscroll.js"></script>
+    <script src="js/custom.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GYM IG</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/aos.css">
+    <link rel="stylesheet" href="css/tooplate-gymso-style.css">
+
+    <style>
+        .hero {
+            height: 10vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background-color: #343a40;
+            color: #fff;
+        }
+
+        .hero #exerciseDetails {
+            background-color: rgb(255, 255, 255); /* Fondo claro con transparencia */
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            text-align: left; /* Alineación de texto a la izquierda */
+        }
+
+        label {
+            color: #fff; /* Color del texto de la etiqueta */
+        }
+
+        select {
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+            background-color: rgba(255, 255, 255, 0.5); /* Fondo claro con transparencia */
+            color: #333; /* Color del texto dentro del select */
+            margin-bottom: 10px;
+        }
+
+        #selectExerciseBtn {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        #selectExerciseBtn:hover {
+            background-color: #0056b3;
+        }
+
+        .hero #exerciseDetails h2 {
+            color: #888; /* Color gris para el título h2 */
+            text-align: center; /* Centrar título */
+            margin-bottom: 20px; /* Espacio inferior */
+        }
+
+        .hero #exerciseDetails p {
+            margin-left: 20px; /* Margen izquierdo para alinear detalles */
+        }
+    </style>
+</head>
+
+<body>
+    <!-- MENU BAR -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">GYM IG</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-lg-auto">
+                    <li class="nav-item">
+                        <a href="#home" class="nav-link smoothScroll">Acondicionamiento</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#about" class="nav-link smoothScroll">Registro</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#class" class="nav-link smoothScroll">Clases</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="usuario.html" class="nav-link smoothScroll">Perfil</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero d-flex flex-column justify-content-center align-items-center" id="home">
+        <div class="bg-overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto col-12">
+                    <div class="hero-text mt-5 text-center">
+                        <div id="exerciseDetails" class="text-center text-white"></div>
+                        <div id="exerciseSelection">
+                            <h3>Cambiar Ejercicio:</h3>
+                            <select id="exerciseSelect">
+                                <option value="Sentadillas">Sentadillas</option>
+                                <option value="Flexiones">Flexiones</option>
+                                <option value="Plancha">Plancha</option>
+                                <option value="Burpees">Burpees</option>
+                            </select>
+                            <label for="repetitions">Repeticiones:</label>
+                            <input type="number" id="repetitions" name="repetitions" min="1" value="10">
+                            <label for="difficulty">Dificultad:</label>
+                            <select id="difficulty">
+                                <option value="Fácil">Fácil</option>
+                                <option value="Intermedio">Intermedio</option>
+                                <option value="Difícil">Difícil</option>
+                            </select>
+                            <button id="selectExerciseBtn" onclick="seleccionarEjercicio()">Seleccionar Ejercicio</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="ml-auto col-lg-4 col-md-5">
+                    <p class="copyright-text">Copyright &copy; 2024 GYM IG.</p>
+                </div>
+                <div class="d-flex justify-content-center mx-auto col-lg-5 col-md-7 col-12">
+                    <p class="mr-4">
+                        <i class="fa fa-envelope-o mr-1"></i>
+                        <a href="#">GYMIG@gmail.com</a>
+                    </p>
+                    <p><i class="fa fa-phone mr-1"></i>2298-8908</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/aos.js"></script>
+    <script src="js/smoothscroll.js"></script>
+    <script src="js/custom.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Datos del usuario (suponiendo que tienes un objeto JSON llamado 'usuario')
+            const usuario = {
+                "nombre": "Admin",
+                "apellido": "Admin",
+                "correo": "admin@gmail.com",
+                "contrasena": "admin",
+                "altura": 175,
+                "peso": 70,
+                "edad": 30
+            };
+
+            // Elemento donde se mostrarán los detalles del ejercicio y selección
+            const exerciseDetailsContainer = document.getElementById('exerciseDetails');
+            const exerciseSelect = document.getElementById('exerciseSelect');
+            const repetitionsInput = document.getElementById('repetitions');
+            const difficultySelect = document.getElementById('difficulty');
+
+            // Función para mostrar los detalles del usuario
+            function mostrarDetallesUsuario() {
+                exerciseDetailsContainer.innerHTML = `
+                    <h2>Datos del Usuario:</h2>
+                    <p><strong>Nombre:</strong> ${usuario.nombre} ${usuario.apellido}</p>
+                    <p><strong>Correo:</strong> ${usuario.correo}</p>
+                    <p><strong>Altura:</strong> ${usuario.altura} cm</p>
+                    <p><strong>Peso:</strong> ${usuario.peso} kg</p>
+                    <p><strong>Edad:</strong> ${usuario.edad} años</p>
+                `;
+            }
+
+            // Función para manejar la selección del ejercicio
+            function seleccionarEjercicio() {
+                const ejercicioSeleccionado = exerciseSelect.value;
+                const repeticiones = repetitionsInput.value;
+                const dificultad = difficultySelect.value;
+
+                alert(`Ejercicio Seleccionado: ${ejercicioSeleccionado}\nRepeticiones: ${repeticiones}\nDificultad: ${dificultad}`);
+            }
+
+            // Mostrar los detalles del usuario al cargar la página
+            mostrarDetallesUsuario();
+        });
+    </script>
+</body>
+
+</html>
